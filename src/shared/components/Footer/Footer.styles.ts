@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 const FooterContainer = styled.div`
-  background-color: #98B4D4;
+  text-transform: uppercase;
+  background-color: #98b4d4;
   color: #0d1c3b;
   width: 100%;
   padding: 20px 0;
+  margin-top: 100px;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -13,7 +15,7 @@ const FooterContainer = styled.div`
 `;
 
 const Div = styled.div`
-  display: block
+  display: block;
 `;
 
 const Section = styled.div`
@@ -48,10 +50,11 @@ const CopyRight = styled.div`
   }
 `;
 
-const Link = styled.a`
+const NavLink = styled.a`
   color: white;
   line-height: 2;
   text-decoration: none;
+
   color: #0d1c3b;
   &:hover {
     text-decoration: underline;
@@ -69,6 +72,7 @@ const Ul = styled.ul`
 const Li = styled.li`
   margin-bottom: 10px;
   text-decoration: none;
+  list-style: none;
 `;
 
 const H4 = styled.h4`
@@ -103,6 +107,7 @@ const Details = styled.details`
   border-radius: 8px;
   box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.15);
 `;
+
 const Summary = styled.summary`
   padding: 0;
   margin: 0;
@@ -110,6 +115,11 @@ const Summary = styled.summary`
 `;
 
 const Register = styled.div`
+  button {
+    background-color: #3c6390;
+    color: white;
+    margin-left: 3px;
+  }
   @media (max-width: 768px) {
     padding: 1rem;
     input {
@@ -117,6 +127,13 @@ const Register = styled.div`
     }
     button {
       width: auto;
+      height: 30px;
+      margin-left: 3px;
+    }
+
+    input {
+      margin-top: 10px;
+      height: 25px;
     }
   }
 `;
@@ -125,7 +142,7 @@ export {
   FooterContainer,
   CompanyDetaile,
   CopyRight,
-  Link,
+  NavLink,
   Ul,
   Li,
   H4,
@@ -135,5 +152,5 @@ export {
   Details,
   Summary,
   Register,
-  Div
+  Div,
 };

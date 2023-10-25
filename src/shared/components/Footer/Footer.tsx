@@ -2,7 +2,7 @@ import {
   FooterContainer,
   CompanyDetaile,
   CopyRight,
-  Link,
+  NavLink,
   Ul,
   Li,
   H4,
@@ -11,6 +11,7 @@ import {
   Register,
   Div,
 } from "./Footer.styles.ts";
+import { Link } from "react-router-dom";
 
 import { getCurrentYear } from "../../../Util/Helper.ts";
 
@@ -43,39 +44,40 @@ const Footer = () => {
           <CompanyDetaile>
             <Div>
               <H4>About</H4>
-              <Ul>
+
+              <Link to="/terms">
                 <Li>
-                  <Link href="#">Our Story</Link>
+                  <NavLink> Terms and Conditions</NavLink>
                 </Li>
+              </Link>
+
+              <Link to="/contact">
                 <Li>
-                  <Link href="#">Leadership</Link>
+                  <NavLink>contact us</NavLink>
                 </Li>
+              </Link>
+
+              <Link to="/about">
                 <Li>
-                  <Link href="#">Careers</Link>
+                  <NavLink>about us</NavLink>
                 </Li>
-                <Li>
-                  <Link href="#">About Us</Link>
-                </Li>
-              </Ul>
+              </Link>
             </Div>
 
-            <div>
+            <Div>
               <H4>Services</H4>
-              <Ul>
-                <Li>
-                  <Link href="#">Our Story</Link>
-                </Li>
-                <Li>
-                  <Link href="#">Leadership</Link>
-                </Li>
-                <Li>
-                  <Link href="#">Careers</Link>
-                </Li>
-                <Li>
-                  <Link href="#">Press</Link>
-                </Li>
-              </Ul>
-            </div>
+
+              <Li>
+                <NavLink target="_blank">our services</NavLink>
+              </Li>
+
+              <Li>
+                <NavLink target="_blank">Leadership</NavLink>
+              </Li>
+              <Li>
+                <NavLink target="_blank">Careers</NavLink>
+              </Li>
+            </Div>
 
             <Register>
               <H4>Get Updates Weekly</H4>
@@ -95,10 +97,14 @@ const Footer = () => {
           </CompanyDetaile>
           <CopyRight>
             <p>
-              © {getCurrentYear()} Norwegian Lab Case. All rights reserved.{" "}
+              © {getCurrentYear()} Norwegian Lab Case. All rights reserved.
               <br />
-              <Link href="#"> Privacy Policy</Link> |
-              <Link href="#"> Terms and Conditions</Link>
+              <Link to="/policy">
+                <NavLink> Privacy Policy</NavLink> |
+              </Link>
+              <Link to="/terms">
+                <NavLink> Terms and Conditions</NavLink>
+              </Link>
             </p>
           </CopyRight>
         </>
@@ -110,13 +116,13 @@ const Footer = () => {
             <Summary>About</Summary>
             <Ul>
               <Li>
-                <Link href="#">Our Story</Link>
+                <NavLink>Our Story</NavLink>
               </Li>
               <Li>
-                <Link href="#">Leadership</Link>
+                <NavLink href="#">Leadership</NavLink>
               </Li>
               <Li>
-                <Link href="#">Careers</Link>
+                <NavLink href="#">Careers</NavLink>
               </Li>
             </Ul>
           </Details>
@@ -124,13 +130,13 @@ const Footer = () => {
             <Summary>Services</Summary>
             <Ul>
               <Li>
-                <Link href="#">Web Design</Link>
+                <NavLink href="#">Web Design</NavLink>
               </Li>
               <Li>
-                <Link href="#">Development</Link>
+                <NavLink href="#">Development</NavLink>
               </Li>
               <Li>
-                <Link href="#">Hosting</Link>
+                <NavLink href="#">Hosting</NavLink>
               </Li>
             </Ul>
           </Details>
@@ -151,10 +157,14 @@ const Footer = () => {
           </Register>
           <CopyRight>
             <p>
-              © {getCurrentYear()} Norwegian Lab Case. All rights reserved.{" "}
+              © {getCurrentYear()} Norwegian Lab Case. All rights reserved.
               <br />
-              <Link href="#"> Privacy Policy</Link> |
-              <Link href="#"> Terms and Conditions</Link>
+              <Link to="/policy">
+                <NavLink> Privacy Policy</NavLink> |
+              </Link>
+              <Link to="/terms">
+                <NavLink> Terms and Conditions</NavLink>
+              </Link>
             </p>
           </CopyRight>
         </>

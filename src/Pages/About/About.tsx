@@ -1,12 +1,14 @@
-import Footer from "../../shared/components/Footer/Footer";
+import { Container } from "../Policy/Policy.styles"
 
-import { Container } from "./Policy.styles";
+import AboutImg from "../../assets/about.png"
 
-const Policy = () => {
+
+const About = () => {
   return (
     <>
       <Container>
-        <h2>Container Policy of Norwegian Lab AS</h2>
+        <h2>OUR MISSION</h2>
+        <img src={AboutImg} alt="about" />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
           fugiat aliquid doloribus est rem esse dolor officia accusamus adipisci
@@ -32,7 +34,7 @@ const Policy = () => {
           sit esse inventore unde obcaecati similique, aliquam omnis laudantium
           iure quae. Laudantium!
         </p>
-        <h3>Container Policy of Norwegian Lab AS</h3>
+        <h3>OUR MISSION</h3>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt
           inventore velit perferendis voluptatum reprehenderit? Sunt iure
@@ -50,7 +52,7 @@ const Policy = () => {
       </Container>
 
     </>
-  );
-};
+  )
+}
 
-export default Policy;
+export default About

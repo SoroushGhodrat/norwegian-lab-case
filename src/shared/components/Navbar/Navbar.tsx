@@ -1,57 +1,53 @@
 import React, { useEffect, useState } from "react";
-
-// import HamburgerMenu from "../../../../assets/HamburgerMenu.svg";
-
-import {
-  Nav,
-  NavContainer,
-  NavTitle,
-  NavMenu,
-  NavItem,
-  BurgerIcon,
-} from "./Navbar.styles";
+import { Nav, NavLink, Div, Brand } from "./Navbar.styles";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
+import { Link } from "react-router-dom";
+
+
+import "./style.css";
+import { useTranslation } from "react-i18next";
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setIsOpen(false);
-        setIsMobile(false);
-      } else {
-        setIsMobile(true);
-      }
-    };
+  const { i18n, t } = useTranslation();
 
-    window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
-  const toggleMenu = () => {
-    setIsOpen((prevIsOpen) => !prevIsOpen);
-  };
+
+
+
 
   return (
     <Nav>
-      <NavContainer>
-        <NavTitle>Norwegian Lab Case</NavTitle>
+      <input type="checkbox" id="check" />
 
-        {isMobile && <BurgerIcon onClick={toggleMenu}> ☰ </BurgerIcon>}
+      <Link to="/">
+        <Brand>
+          <span>Norwegian Lab Case</span>
+        </Brand>
+      </Link>
 
-        <NavMenu isOpen={isOpen}>
-          <NavItem>Home</NavItem>
-          <NavItem>About</NavItem>
-          <NavItem>Services</NavItem>
-          <NavItem>Contact</NavItem>
-          <LanguageSelector />
-        </NavMenu>
-      </NavContainer>
+      <Div className="menu-btn">
+        <label htmlFor="check">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </Div>
+
+      <Div className="menu-item">
+        <Link to="/">
+          <NavLink className="nav-link nav-link-grow-up">{t("localization:home")}</NavLink>
+        </Link>
+        <Link className="nav-link nav-link-grow-up" to="/about">
+          <NavLink className="nav-link nav-link-grow-up">{t("localization:about")}</NavLink>
+        </Link>
+        <Link className="nav-link nav-link-grow-up" to="/contact">
+          <NavLink className="nav-link nav-link-grow-up">{t("localization:contact")}</NavLink>
+        </Link>
+
+        <LanguageSelector />
+      </Div>
     </Nav>
   );
 };

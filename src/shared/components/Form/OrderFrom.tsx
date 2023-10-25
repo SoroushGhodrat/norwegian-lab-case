@@ -43,8 +43,6 @@ const initialInputs = {
   },
 };
 
-
-
 const OrderForm = () => {
   const [formState, inputHandler, setFormData] = useForm(initialInputs, false);
 
@@ -62,9 +60,7 @@ const OrderForm = () => {
     );
   };
 
-  const resetFormHandler = () => {
-
-  }
+  const resetFormHandler = () => {};
 
   // console.log("Data", formData);
   return (
@@ -164,10 +160,12 @@ const OrderForm = () => {
       </Div>
 
       <Div className="form_button">
-        <Button type="reset" onClick={resetFormHandler}>Reset all</Button>
+        <Button type="reset" onClick={resetFormHandler}>
+          reset all
+        </Button>
         {/* <Button type="reset">Reset All</Button> */}
         {/* <Button type="submit" onClick={submitFormHandler}>Submit</Button> */}
-        <Button type="submit">Submit</Button>
+        <Button type="submit">order</Button>
       </Div>
     </Form>
   );

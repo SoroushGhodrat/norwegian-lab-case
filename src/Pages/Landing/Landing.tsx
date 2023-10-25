@@ -1,6 +1,14 @@
-import OrderForm from "../../shared/components/Form/OrderFrom";
 import heroImage from "../../assets/Hero_2.jpg";
-import { HeroContainer, HeroImage, HeroText, Div } from "./Landing.styles";
+import {
+  HeroContainer,
+  HeroImage,
+  HeroText,
+  Div,
+  Product,
+} from "./Landing.styles";
+import ProductImg from "../../assets/cl-box-product.png";
+import Footer from "../../shared/components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -13,11 +21,11 @@ const LandingPage = () => {
         </HeroText>
       </HeroContainer>
       <Div>
-        <h2 className="text2">
+        <h2>
           Enhancing well-being by embracing innovation and striving for
           excellence.
         </h2>
-        <p className="text">
+        <p>
           Our mission is to enhance the quality of life for individuals
           worldwide through groundbreaking innovations and unwavering commitment
           to excellence. Specializing in the creation of cutting-edge health
@@ -31,8 +39,14 @@ const LandingPage = () => {
           world's health landscape, one breakthrough at a time.
         </p>
       </Div>
+      <Product>
+        <h2>Our best seller</h2>
+        <img src={ProductImg} alt="Product" />
+        <Link to="/order#best-seller"> <button type="submit">order</button></Link>
+       
+      </Product>
 
-      <OrderForm />
+
     </>
   );
 };

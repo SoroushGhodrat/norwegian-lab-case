@@ -18,8 +18,8 @@ i18n
       fallbackLng: "en",
       //allow to look at all the languages
       debug: true,
-      ns: ["navbar"],
-      defaultNS: "navbar",
+      ns: ["localization"],
+      defaultNS: "localization",
       interpolation: {
         escapeValue: false,
         formatSeparator: ",",

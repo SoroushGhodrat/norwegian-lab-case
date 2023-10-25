@@ -1,27 +1,27 @@
 import Footer from "../../shared/components/Footer/Footer";
+import { Container } from "../Policy/Policy.styles";
 
-import { Container } from "./Policy.styles";
-
-const Policy = () => {
+const Terms = () => {
   return (
     <>
       <Container>
-        <h2>Container Policy of Norwegian Lab AS</h2>
+        <h2>Terms and Conditions</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
           fugiat aliquid doloribus est rem esse dolor officia accusamus adipisci
           iste? Explicabo, nam. Velit, cum commodi mollitia officiis,
           perferendis quisquam est tempora ea dolore, vero expedita quos quae
           consequatur odio modi. Voluptate laborum unde veritatis quidem quis
-          voluptatem, ex incidunt rem voluptatum mollitia laudantium dolorum
+          voluptatem, ex. <br /> <br /> Incidunt rem voluptatum mollitia laudantium dolorum
           ratione facilis voluptas ipsa eveniet ea! Aliquam vero repellendus
           corrupti ab, minus aliquid. Nostrum culpa repellat omnis aperiam
           tempora reprehenderit quia, magnam consectetur, fugiat eaque
           perspiciatis. Ut cumque nemo voluptates. Molestias harum ipsa quasi
           tenetur ea, temporibus voluptate adipisci iure error aliquam omnis
           amet aliquid perferendis. Corporis enim ut reiciendis facere molestias
-          officiis, molestiae repudiandae et porro nostrum? Rem eum quia,
-          quaerat aut quis id eveniet? Inventore eos omnis nihil corporis?
+          officiis, molestiae repudiandae et porro nostrum? Rem eum quia.
+          <br /><br />
+          Quaerat aut quis id eveniet? Inventore eos omnis nihil corporis?
           Officiis sequi aliquam laudantium, numquam doloremque alias voluptate
           vitae adipisci ratione facere, perspiciatis ab molestiae. Quibusdam,
           quisquam. Expedita rerum consequatur nostrum eligendi voluptas nulla,
@@ -32,7 +32,7 @@ const Policy = () => {
           sit esse inventore unde obcaecati similique, aliquam omnis laudantium
           iure quae. Laudantium!
         </p>
-        <h3>Container Policy of Norwegian Lab AS</h3>
+        <h3>COOKIES</h3>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt
           inventore velit perferendis voluptatum reprehenderit? Sunt iure
@@ -53,4 +53,4 @@ const Policy = () => {
   );
 };
 
-export default Policy;
+export default Terms;

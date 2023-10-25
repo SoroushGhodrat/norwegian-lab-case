@@ -10,7 +10,6 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 300px;
-  /* border: 1px solid #ccc; */
 
   padding: 0.5rem;
   &.name {
@@ -27,6 +26,18 @@ const Div = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
   }
+  @media (max-width: 768px) {
+    &.name {
+      flex-direction: column;
+    }
+    &.address {
+      flex-direction: column;
+    }
+    &.email {
+      width: auto;
+    }
+
+  }
 `;
 
 const Label = styled.label`
@@ -41,6 +52,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
+  text-transform: uppercase;
   width: 10rem;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
@@ -56,6 +68,11 @@ const Button = styled.button`
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+
+  @media (max-width: 768px) {
+    width: 7rem;
+    padding: 0.5rem 1rem;
   }
 `;
 

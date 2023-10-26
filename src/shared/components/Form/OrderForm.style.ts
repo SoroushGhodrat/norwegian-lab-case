@@ -10,8 +10,8 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 300px;
-
   padding: 0.5rem;
+
   &.name {
     flex-direction: row;
   }
@@ -36,7 +36,6 @@ const Div = styled.div`
     &.email {
       width: auto;
     }
-
   }
 `;
 
@@ -57,14 +56,13 @@ const Button = styled.button`
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   border: none;
-  background-color: #333;
+  background-color: #3c639d;
   color: #fff;
   cursor: pointer;
 
   &:hover {
-    background-color: #555;
+    background-color: #b4c5e4;
   }
-
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;

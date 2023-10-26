@@ -8,6 +8,9 @@ const Container = styled.div`
   @media (max-width: 768px) {
     padding: 0 5vh;
     padding-top: 10px;
+    img {
+      width: 300px;
+    }
   }
 `;
 

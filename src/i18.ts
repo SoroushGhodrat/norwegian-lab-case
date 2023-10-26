@@ -29,7 +29,7 @@ i18n
       if (error) {
         return console.log("Loading i18n error", error);
       }
-    }
+    },
   );
 
 export default i18n;

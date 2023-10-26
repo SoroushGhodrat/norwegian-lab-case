@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   width: 100%;
-  border-bottom: 0.1px solid rgba(60, 99, 144, .1);
+  border-bottom: 0.1px solid rgba(60, 99, 144, 0.1);
   position: relative;
   background-color: transparent;
 
@@ -24,7 +24,6 @@ export const Nav = styled.nav`
   }
 
   @media (max-width: 800px) {
-
     & .menu-btn {
       display: inline-block;
       position: absolute;

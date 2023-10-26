@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import useForm from "../../../hooks/form-hook";
 import {
   VALIDATOR_EMAIL,
-  VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
   VALIDATOR_POSTAL_CODE,
 } from "../../../Util/validators";
 
 import Input from "./Input";
+import Modal from "../Modal/Modal";
 
-import { Form, Label, Button, Div } from "./OrderForm.style";
+import { Form, Button, Div } from "./OrderForm.style";
+import { useTranslation } from "react-i18next";
 
 const initialInputs = {
   name: {
@@ -44,130 +45,158 @@ const initialInputs = {
 };
 
 const OrderForm = () => {
-  const [formState, inputHandler, setFormData] = useForm(initialInputs, false);
+  const { t } = useTranslation();
+  const [formState, inputHandler] = useForm(initialInputs, false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const authSubmitHandler = async (event: any) => {
     event.preventDefault();
 
-    console.log("formstate1: ", formState.inputs);
-    console.log("formstate2: ", formState);
-
-    setFormData(
-      {
-        ...formState.inputs,
-      },
-      true
-    );
+    // console.log("formstate1: ", formState.inputs);
   };
 
-  const resetFormHandler = () => {};
+  const submitFormHandler = () => {
+    if (formState.isValid) {
+      setIsModalOpen(true);
+    }
+  };
 
-  // console.log("Data", formData);
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <Form onSubmit={authSubmitHandler}>
-      <Div className="name">
-        <Div>
-          <Input
-            element="input"
-            id="name"
-            type="text"
-            label="First Name"
-            autocomplete="on"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a name."
-            onInput={inputHandler}
-          />
+    <>
+      <Form onSubmit={authSubmitHandler}>
+        <Div className="name">
+          <Div>
+            <Input
+              element="input"
+              id="name"
+              type="text"
+              label={t("localization:firstName")}
+              autocomplete="on"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a name."
+              onInput={inputHandler}
+              require={true}
+              value={formState.inputs.name.value}
+            />
+          </Div>
+          <Div>
+            <Input
+              element="input"
+              id="last_name"
+              type="text"
+              label={t("localization:lastName")}
+              autocomplete="on"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a name."
+              onInput={inputHandler}
+              require={true}
+            />
+          </Div>
         </Div>
-        <Div>
-          <Input
-            element="input"
-            id="last_name"
-            type="text"
-            label="Last Name"
-            autocomplete="on"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a name."
-            onInput={inputHandler}
-          />
-        </Div>
-      </Div>
 
-      <Div className="email">
-        <Input
-          element="input"
-          id="email"
-          type="email"
-          label="E-Mail"
-          autocomplete="on"
-          validators={[VALIDATOR_EMAIL()]}
-          errorText="Please enter a valid email address."
-          onInput={inputHandler}
-        />
-      </Div>
+        <Div className="email">
+          <Input
+            element="input"
+            id="email"
+            type="email"
+            label={t("localization:email")}
+            autocomplete="on"
+            validators={[VALIDATOR_EMAIL()]}
+            errorText="Please enter a valid email address."
+            onInput={inputHandler}
+            require={true}
+          />
+        </Div>
 
-      <Div className="address">
-        <Div>
-          <Input
-            element="input"
-            id="street"
-            type="text"
-            label="Street"
-            autocomplete="on"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a street."
-            onInput={inputHandler}
-          />
+        <Div className="address">
+          <Div>
+            <Input
+              element="input"
+              id="street"
+              type="text"
+              label={t("localization:street")}
+              autocomplete="on"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a street."
+              onInput={inputHandler}
+              require={true}
+            />
+          </Div>
+          <Div>
+            <Input
+              element="input"
+              id="city"
+              type="text"
+              label={t("localization:city")}
+              autocomplete="on"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a city."
+              onInput={inputHandler}
+              require={true}
+            />
+          </Div>
         </Div>
-        <Div>
-          <Input
-            element="input"
-            id="city"
-            type="text"
-            label="City"
-            autocomplete="on"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a city."
-            onInput={inputHandler}
-          />
-        </Div>
-      </Div>
 
-      <Div className="address">
-        <Div>
-          <Input
-            element="input"
-            id="postal_code"
-            type="text"
-            label="Postal Code"
-            autocomplete="on"
-            validators={[VALIDATOR_POSTAL_CODE()]}
-            errorText="Please enter a correct postal code. Postal code must be at least 4 digit and only number."
-            onInput={inputHandler}
-          />
+        <Div className="address">
+          <Div>
+            <Input
+              element="input"
+              id="postal_code"
+              type="text"
+              label={t("localization:postalCode")}
+              autocomplete="on"
+              validators={[VALIDATOR_POSTAL_CODE()]}
+              errorText="At least 4 digit and only number."
+              onInput={inputHandler}
+              require={true}
+            />
+          </Div>
+          <Div>
+            <Input
+              element="input"
+              id="country"
+              type="text"
+              label={t("localization:country")}
+              autocomplete="on"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a country name."
+              onInput={inputHandler}
+              require={true}
+            />
+          </Div>
         </Div>
-        <Div>
-          <Input
-            element="input"
-            id="country"
-            type="text"
-            label="Country"
-            autocomplete="on"
-            validators={[VALIDATOR_REQUIRE()]}
-            errorText="Please enter a country name."
-            onInput={inputHandler}
-          />
-        </Div>
-      </Div>
 
-      <Div className="form_button">
-        <Button type="reset" onClick={resetFormHandler}>
-          reset all
-        </Button>
-        {/* <Button type="reset">Reset All</Button> */}
-        {/* <Button type="submit" onClick={submitFormHandler}>Submit</Button> */}
-        <Button type="submit">order</Button>
-      </Div>
-    </Form>
+        <Div className="form_button">
+          <Button type="submit" onClick={submitFormHandler}>
+            {t("localization:order")}
+          </Button>
+        </Div>
+      </Form>
+      {isModalOpen && (
+        <Modal onClose={handleClose}>
+          <h1>Thanks!</h1>
+          <p>Your order is on the way.</p>
+          <span>
+            <h5>Order detailes</h5>
+            <p>
+              Name: {formState.inputs.name.value}
+              {formState.inputs.last_name.value}
+              <br />
+              Email: {formState.inputs.email.value}
+              <br />
+              Address: {formState.inputs.street.value},
+              {formState.inputs.city.value}, {formState.inputs.country.value}
+              <br />
+              Postal code: {formState.inputs.postal_code.value}
+            </p>
+          </span>
+        </Modal>
+      )}
+    </>
   );
 };
 

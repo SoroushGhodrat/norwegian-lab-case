@@ -1,25 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Nav, NavLink, Div, Brand } from "./Navbar.styles";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import { Link } from "react-router-dom";
-
-
-import "./style.css";
 import { useTranslation } from "react-i18next";
 
 const Navbar: React.FC = () => {
+  const { t } = useTranslation();
+  const [isChecked, setIsChecked] = useState(false);
 
-  const { i18n, t } = useTranslation();
+  const handleMenuClick = () => {
+    setIsChecked(!isChecked);
+  };
 
-
-
-
-
-
+  const handleMenuItemClick = () => {
+    setIsChecked(false);
+  };
 
   return (
     <Nav>
-      <input type="checkbox" id="check" />
+      <input
+        type="checkbox"
+        id="check"
+        checked={isChecked}
+        onChange={handleMenuClick}
+      />
 
       <Link to="/">
         <Brand>
@@ -36,14 +40,28 @@ const Navbar: React.FC = () => {
       </Div>
 
       <Div className="menu-item">
-        <Link to="/">
-          <NavLink className="nav-link nav-link-grow-up">{t("localization:home")}</NavLink>
+        <Link to="/" onClick={handleMenuItemClick}>
+          <NavLink className="nav-link nav-link-grow-up">
+            {t("localization:home")}
+          </NavLink>
         </Link>
-        <Link className="nav-link nav-link-grow-up" to="/about">
-          <NavLink className="nav-link nav-link-grow-up">{t("localization:about")}</NavLink>
+        <Link
+          className="nav-link nav-link-grow-up"
+          to="/about"
+          onClick={handleMenuItemClick}
+        >
+          <NavLink className="nav-link nav-link-grow-up">
+            {t("localization:about")}
+          </NavLink>
         </Link>
-        <Link className="nav-link nav-link-grow-up" to="/contact">
-          <NavLink className="nav-link nav-link-grow-up">{t("localization:contact")}</NavLink>
+        <Link
+          className="nav-link nav-link-grow-up"
+          to="/contact"
+          onClick={handleMenuItemClick}
+        >
+          <NavLink className="nav-link nav-link-grow-up">
+            {t("localization:contact")}
+          </NavLink>
         </Link>
 
         <LanguageSelector />

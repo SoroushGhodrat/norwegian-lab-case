@@ -27,7 +27,7 @@ const LanguageSelector = () => {
   }, []);
 
   const handleLanguageChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
+    event: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     setSelectedLanguage(event.target.value);
     localStorage.setItem("i18nextLng", event.target.value);

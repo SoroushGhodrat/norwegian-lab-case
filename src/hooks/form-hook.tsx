@@ -23,9 +23,6 @@ interface Action {
 }
 
 const formReducer = (state: any, action: Action) => {
-  console.log("formReducer");
-  // console.log('ACCTION: ', action)
-  // console.log('STATE: ', state)
   switch (action.type) {
     case "INPUT_CHANGE":
       let formIsValid = true;
@@ -61,7 +58,7 @@ const formReducer = (state: any, action: Action) => {
 
 const useForm = (
   initialInputs: InitialInputs,
-  initialFormValidity: boolean
+  initialFormValidity: boolean,
 ) => {
   const [formState, dispatch] = useReducer(formReducer, {
     inputs: initialInputs,
@@ -80,7 +77,7 @@ const useForm = (
         inputId: id,
       });
     },
-    []
+    [],
   );
 
   const setFormData = useCallback(
@@ -92,7 +89,7 @@ const useForm = (
         formIsValid: formValidity,
       });
     },
-    []
+    [],
   );
 
   return [formState, inputHandler, setFormData];

@@ -44,14 +44,11 @@ export const VALIDATOR_EMAIL = (): Validator => ({
 });
 
 export const validate = (value: string, validators: Validator[]) => {
-  console.log("value in validator", validators);
   let isValid = true;
 
   for (const validator of validators) {
     if (validator.type === VALIDATOR_TYPE_REQUIRE) {
-      // const alphaRegex = /^[a-zA-Z]+$/;
-      isValid = isValid && value.trim().length >= 3 
-      // && alphaRegex.test(value);
+      isValid = isValid && value.trim().length >= 3;
     }
     if (validator.type === VALIDATOR_TYPE_POSTAL_CODE) {
       const numericRegex = /^[0-9]+$/;

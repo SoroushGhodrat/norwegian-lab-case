@@ -1,7 +1,6 @@
-import { Container } from "../Policy/Policy.styles"
+import { Container } from "../Policy/Policy.styles";
 
-import AboutImg from "../../assets/about.png"
-
+import AboutImg from "../../assets/about.png";
 
 const About = () => {
   return (
@@ -50,9 +49,8 @@ const About = () => {
           blanditiis!
         </p>
       </Container>
-
     </>
-  )
-}
+  );
+};
 
-export default About
+export default About;

@@ -17,8 +17,10 @@ import { getCurrentYear } from "../../../Util/Helper.ts";
 
 import { View } from "../../../declarations/models.t.ts";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const [view, setView] = useState<View>("desktop");
 
   const handleResize = () => {
@@ -43,46 +45,50 @@ const Footer = () => {
         <>
           <CompanyDetaile>
             <Div>
-              <H4>About</H4>
+              <H4>{t("localization:about")}</H4>
 
               <Link to="/terms">
                 <Li>
-                  <NavLink> Terms and Conditions</NavLink>
+                  <NavLink>{t("localization:terms")}</NavLink>
                 </Li>
               </Link>
 
               <Link to="/contact">
                 <Li>
-                  <NavLink>contact us</NavLink>
+                  <NavLink>{t("localization:contact")}</NavLink>
                 </Li>
               </Link>
 
               <Link to="/about">
                 <Li>
-                  <NavLink>about us</NavLink>
+                  <NavLink>{t("localization:about")}</NavLink>
                 </Li>
               </Link>
             </Div>
 
             <Div>
-              <H4>Services</H4>
+              <H4>{t("localization:service")}</H4>
 
               <Li>
-                <NavLink target="_blank">our services</NavLink>
+                <NavLink target="_blank">
+                  {t("localization:ourServices")}
+                </NavLink>
               </Li>
 
               <Li>
-                <NavLink target="_blank">Leadership</NavLink>
+                <NavLink target="_blank">
+                  {t("localization:leadership")}
+                </NavLink>
               </Li>
               <Li>
-                <NavLink target="_blank">Careers</NavLink>
+                <NavLink target="_blank">{t("localization:careers")}</NavLink>
               </Li>
             </Div>
 
             <Register>
-              <H4>Get Updates Weekly</H4>
+              <H4>{t("localization:getUpdatesWeekly")}</H4>
               <form>
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">{t("localization:email")}:</label>
                 <br />
                 <input
                   type="email"
@@ -91,7 +97,7 @@ const Footer = () => {
                   placeholder="sample@email.com"
                   required
                 />
-                <button type="submit">Register</button>
+                <button type="submit">{t("localization:register")}</button>
               </form>
             </Register>
           </CompanyDetaile>
@@ -100,10 +106,10 @@ const Footer = () => {
               © {getCurrentYear()} Norwegian Lab Case. All rights reserved.
               <br />
               <Link to="/policy">
-                <NavLink> Privacy Policy</NavLink> |
+                <NavLink> {t("localization:privacyPolicy")}</NavLink> |
               </Link>
               <Link to="/terms">
-                <NavLink> Terms and Conditions</NavLink>
+                <NavLink>{t("localization:termsAndConditions")}</NavLink>
               </Link>
             </p>
           </CopyRight>
@@ -113,37 +119,49 @@ const Footer = () => {
       {view === "mobile" && (
         <>
           <Details>
-            <Summary>About</Summary>
+            <Summary>{t("localization:about")}</Summary>
             <Ul>
-              <Li>
-                <NavLink>Our Story</NavLink>
-              </Li>
-              <Li>
-                <NavLink href="#">Leadership</NavLink>
-              </Li>
-              <Li>
-                <NavLink href="#">Careers</NavLink>
-              </Li>
+              <Link to="/terms">
+                <Li>
+                  <NavLink>{t("localization:terms")}</NavLink>
+                </Li>
+              </Link>
+
+              <Link to="/contact">
+                <Li>
+                  <NavLink>{t("localization:contact")}</NavLink>
+                </Li>
+              </Link>
+
+              <Link to="/about">
+                <Li>
+                  <NavLink>{t("localization:about")}</NavLink>
+                </Li>
+              </Link>
             </Ul>
           </Details>
           <Details>
-            <Summary>Services</Summary>
+            <Summary>{t("localization:service")}</Summary>
             <Ul>
               <Li>
-                <NavLink href="#">Web Design</NavLink>
+                <NavLink target="_blank">
+                  {t("localization:ourServices")}
+                </NavLink>
               </Li>
               <Li>
-                <NavLink href="#">Development</NavLink>
+                <NavLink target="_blank">
+                  {t("localization:leadership")}
+                </NavLink>
               </Li>
               <Li>
-                <NavLink href="#">Hosting</NavLink>
+                <NavLink target="_blank">{t("localization:careers")}</NavLink>
               </Li>
             </Ul>
           </Details>
           <Register>
-            <H4>Get Updates Weekly</H4>
+            <H4>{t("localization:getUpdatesWeekly")}</H4>
             <form>
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="email">{t("localization:email")}:</label>
               <br />
               <input
                 type="email"
@@ -152,7 +170,7 @@ const Footer = () => {
                 placeholder="sample@email.com"
                 required
               />
-              <button type="submit">Register</button>
+              <button type="submit">{t("localization:register")}</button>
             </form>
           </Register>
           <CopyRight>
@@ -160,10 +178,10 @@ const Footer = () => {
               © {getCurrentYear()} Norwegian Lab Case. All rights reserved.
               <br />
               <Link to="/policy">
-                <NavLink> Privacy Policy</NavLink> |
+                <NavLink> {t("localization:privacyPolicy")}</NavLink> |
               </Link>
               <Link to="/terms">
-                <NavLink> Terms and Conditions</NavLink>
+                <NavLink>{t("localization:termsAndConditions")}</NavLink>
               </Link>
             </p>
           </CopyRight>

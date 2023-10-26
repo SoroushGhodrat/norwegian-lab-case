@@ -53,7 +53,7 @@ const CopyRight = styled.div`
 const NavLink = styled.a`
   color: white;
   line-height: 2;
-  text-decoration: none;
+  text-decoration: none !important;
 
   color: #0d1c3b;
   &:hover {
@@ -65,8 +65,7 @@ const NavLink = styled.a`
 
 const Ul = styled.ul`
   list-style: none;
-
-  text-decoration: none;
+  text-decoration: none !important;
 `;
 
 const Li = styled.li`
@@ -116,9 +115,17 @@ const Summary = styled.summary`
 
 const Register = styled.div`
   button {
-    background-color: #3c6390;
+    background-color: #3c639d;
     color: white;
     margin-left: 3px;
+    cursor: pointer;
+    border: none;
+    padding: 2px 6px;
+    box-shadow: none;
+  }
+  button:hover {
+    background-color: #b4c5e4;
+    border-color: #3c639d;
   }
   @media (max-width: 768px) {
     padding: 1rem;

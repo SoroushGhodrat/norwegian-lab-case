@@ -48,7 +48,6 @@ const Policy = () => {
           blanditiis!
         </p>
       </Container>
-
     </>
   );
 };

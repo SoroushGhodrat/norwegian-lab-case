@@ -26,11 +26,11 @@ interface InputProps {
   autocomplete?: "on" | "off";
   initialValid?: boolean;
   initialValue?: any;
+  require?: boolean;
   onInput: (id: string, value: string, isValid: boolean) => void;
 }
 
 const inputReducer = (state: InputReducerState, action: InputReducerAction) => {
-  console.log("inputReducer");
   switch (action.type) {
     case "CHANGE":
       return {
@@ -57,6 +57,7 @@ const Input = ({
   validators,
   value,
   valid,
+  require,
   onInput,
 }: InputProps) => {
   const [state, dispatch] = useReducer(inputReducer, {
@@ -70,7 +71,7 @@ const Input = ({
   }, [id, state.value, state.isValid, onInput]);
 
   const changeHandler = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     dispatch({
       type: "CHANGE",
@@ -88,6 +89,7 @@ const Input = ({
       type={type}
       placeholder={placeholder}
       value={state.value}
+      required={require}
       onChange={changeHandler}
       onBlur={touchHandler}
     />

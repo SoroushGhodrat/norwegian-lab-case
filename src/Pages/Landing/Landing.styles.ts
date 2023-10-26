@@ -47,7 +47,7 @@ const HeroImage = styled.img`
 `;
 
 const HeroText = styled.h3`
-  color: red;
+  color: orange;
   font-size: 40px;
   position: absolute;
   top: 40%;

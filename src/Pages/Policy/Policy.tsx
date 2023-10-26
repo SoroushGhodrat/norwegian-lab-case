@@ -1,5 +1,3 @@
-import Footer from "../../shared/components/Footer/Footer";
-
 import { Container } from "./Policy.styles";
 
 const Policy = () => {

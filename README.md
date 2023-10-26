@@ -1,6 +1,6 @@
 # React + TypeScript + Localization + Vite
 
-This is a starter template for building a React application with TypeScript, localization support, and Vite as the build tool.
+This is a sample React application with TypeScript (as a case for Norwegian Lab), localization support, and Vite as the build tool.
 
 ## Getting Started
 
